@@ -1,6 +1,10 @@
 # Demonstração do método fetchall() em Python
 
-Para demonstrar o método fetchall() em Python, vamos utilizar uma tabela simples de vingadores:
+Um dos pontos-chave dessa demonstração é compreender que os dados de uma tabela de um banco de dados são **carregados em memória** para serem manipulados pelo programa. O método `fetchall()` é utilizado para **retornar todos os registros** de uma consulta ao banco de dados. Esses registros são retornados em uma **lista de tuplas**, onde cada tupla representa um registro da tabela.
+
+Para demonstrar o método `fetchall()`, vamos criar uma tabela simples de vingadores e inserir alguns registros. Em seguida, vamos criar um método na classe `Database` para executar uma query e retornar todos os registros da tabela. Por fim, vamos carregar os dados dos herois em memória como objetos da classe `Vingador` e exibir os registros na tela.
+
+Vamos começar criando uma tabela simples de vingadores, chamada `heroi`, com os seguintes campos:
 
 ```sql
 CREATE TABLE `heroi` (
@@ -15,16 +19,15 @@ CREATE TABLE `heroi` (
   PRIMARY KEY (`heroi_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 ```
-Note que a tabela não se preocupa com os tipos de dados, apenas com a estrutura, para simplificar a demonstração.
 
-Agora, vamos inserir alguns dados na tabela:
+> Note que a tabela não se preocupa com os tipos de dados, apenas com a estrutura, para simplificar a demonstração. Esta tabela também não se procupa em fornecer dados da convocação, da tornozeleira eletrônica e do chip de localização, que **deverão ser modeladas por você no seu projeto** com a correta cardinalidade e relacionamento com a tabela `heroi`.
+
+Agora, podemos inserir alguns dados na tabela:
 
 ```sql
 INSERT INTO `heroi` (`nome_heroi`, `nome_real`, `categoria`, `poderes`, `poder_principal`, `fraquezas`, `nivel_forca`) VALUES
-('Homem de Ferro', 'Tony Stark', 'Humano', 'Inteligência, tecnologia', 'Armadura', 'Arrogância', '100'),
-('Thor', 'Thor Odinson', 'Deus', 'Força, eletricidade', 'Mjolnir', 'Orgulho', '1000'),
-('Hulk', 'Bruce Banner', 'Humano', 'Força, resistência', 'Raiva', 'Controle emocional', '1000'),
-('Capitão América', 'Steve Rogers', 'Humano', 'Força, agilidade', 'Escudo', 'Desconhecido', '100');
+('Homem de Ferro', 'Tony Stark', 'Humano', 'Inteligência, Tecnologia', 'Armadura', 'Arrogância', '100'),
+('Thor', 'Thor', 'Deidade', 'Força, Relâmpagos, Mjolnir', 'Rompe-tormentas', 'Orgulho, Fortnite', '1000');
 ```
 
 Na classe `Database`, vamos criar um método `select()` que executará uma query e retornará todos os registros da tabela:
@@ -60,15 +63,13 @@ finally:
 Com esse código, ao executar o arquivo `app.py`, você verá a saída dos registros da tabela `heroi`:
 
 ```
-(1, 'Homem de Ferro', 'Tony Stark', 'Humano', 'Inteligência, tecnologia', 'Armadura', 'Arrogância', '100')
-(2, 'Thor', 'Thor Odinson', 'Deus', 'Força, eletricidade', 'Mjolnir', 'Orgulho', '1000')
-(3, 'Hulk', 'Bruce Banner', 'Humano', 'Força, resistência', 'Raiva', 'Controle emocional', '1000')
-(4, 'Capitão América', 'Steve Rogers', 'Humano', 'Força, agilidade', 'Escudo', 'Desconhecido', '100')
+(1, 'Homem de Ferro', 'Tony Stark', 'Humano', 'Inteligência, Tecnologia', 'Armadura', 'Arrogância', '100')
+(2, 'Thor', 'Thor', 'Deidade', 'Força, Relâmpagos, Mjolnir', 'Rompe-tormentas', 'Orgulho, Fortnite', '1000')
 ```
 
-> Observe que o retorno do método `fetchall()` é uma **lista de tuplas**, onde cada tupla representa um registro da tabela.
+> Observe que o retorno do método `fetchall()` é uma **lista de tuplas**, onde cada tupla representa um registro da tabela. As tuplas contêm os valores dos campos do registro na ordem em que foram selecionados na query. Lembre-se de que tuplas são **imutáveis**, ou seja, não é possível alterar os valores de uma tupla após sua criação, e isso é importante para garantir a integridade dos dados.
 
-Agora, podemos utilizar esses registros para carregar os dados dos herois em memória, instanciando objetos da classe `Vingador`:
+Ainda no arquivo `app.py`, podemos utilizar esses registros retornados para carregar os dados dos herois em memória, instanciando objetos da classe `Vingador`:
 
 ```python	
 try:
@@ -84,7 +85,7 @@ finally:
     db.disconnect()
 ```
 
-> Dessa forma, ao executar o arquivo `app.py`, os registros da tabela `heroi` serão carregados em memória como objetos da classe `Vingador`.
+> Note que dessa forma, ao executar `app.py`, os registros da tabela `heroi` serão **carregados em memória** como objetos da classe `Vingador`.
 
 Em seguida, com o código testado no arquivo `app.py`, você pode implementar o método `carregar_vingadores()` na classe `Vingador` para carregar os dados dos herois em memória:
 
