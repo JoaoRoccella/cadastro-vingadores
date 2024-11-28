@@ -37,3 +37,12 @@ class Database:
         except Error as e:
             print(f'Erro: {e}')
             return None
+        
+    def select(self, query):
+        try:
+            # self.cursor = self.connection.cursor(dictionary=True)
+            self.cursor.execute(query)
+            return self.cursor.fetchall()
+        except Error as e:
+            print(f'Erro: {e}')
+            return None

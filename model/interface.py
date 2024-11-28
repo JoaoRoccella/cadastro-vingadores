@@ -1,9 +1,13 @@
-from string import capwords
 from model.vingador import Vingador
-from os import system
 from model.database import Database
+from string import capwords
+from os import system
 
 class Interface:
+
+    def __init__(self):
+        Vingador.carregar_vingadores()
+        self.menu_principal()
 
     def menu_principal(self):
         self.exibe_titulo_app()
@@ -71,7 +75,6 @@ class Interface:
         fraquezas = input("Fraquezas: (separadas por vírgula): ").split(',') # armazena em uma lista
         nivel_forca = int(input("Nível de Força: "))
 
-        Vingador(nome_heroi, nome_real, categoria, poderes, poder_principal, fraquezas, nivel_forca)
 
         # Salva o vingador no banco de dados
         try:
@@ -82,7 +85,9 @@ class Interface:
             
             values = (nome_heroi, nome_real, categoria, ', '.join(poderes), poder_principal, ', '.join(fraquezas), nivel_forca)
 
-            db.execute_query(query, values) # executa a query, substituindo os placeholders pelos valores
+            cursor = db.execute_query(query, values) # executa a query, substituindo os placeholders pelos valores e retorna o cursor para a variável cursor
+            
+            Vingador(cursor.lastrowid, nome_heroi, nome_real, categoria, poderes, poder_principal, fraquezas, nivel_forca)
         except Exception as e:
             print(f"Erro ao salvar vingador no banco de dados: {e}")
         finally:
