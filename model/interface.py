@@ -5,6 +5,10 @@ from model.database import Database
 
 class Interface:
 
+    def __init__(self):
+        Vingador.carregar_herois()
+        self.menu_principal()
+
     def menu_principal(self):
         self.exibe_titulo_app()
         while True:
@@ -71,7 +75,6 @@ class Interface:
         fraquezas = input("Fraquezas: (separadas por vírgula): ").split(',') # armazena em uma lista
         nivel_forca = int(input("Nível de Força: "))
 
-        Vingador(nome_heroi, nome_real, categoria, poderes, poder_principal, fraquezas, nivel_forca)
 
         # Salva o vingador no banco de dados
         try:
@@ -82,7 +85,10 @@ class Interface:
             
             values = (nome_heroi, nome_real, categoria, ', '.join(poderes), poder_principal, ', '.join(fraquezas), nivel_forca)
 
-            db.execute_query(query, values) # executa a query, substituindo os placeholders pelos valores
+            cursor = db.execute_query(query, values) # executa a query, substituindo os placeholders pelos valores
+            
+            Vingador(cursor.lastrowid, nome_heroi, nome_real, categoria, poderes, poder_principal, fraquezas, nivel_forca)
+            
         except Exception as e:
             print(f"Erro ao salvar vingador no banco de dados: {e}")
         finally:
