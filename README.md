@@ -2,7 +2,9 @@
 
 Esta aplicação fará o cadastro de vingadores, com nome, nome real, poderes, fraquezas, força e será utilizado para praticar a criação de uma aplicação backend com Python, MySQL e Flask. 
 
-Para clonar o repositório, execute o passo a passo descrito aqui: [CLONEME.md](CLONEME.md).
+Para clonar o repositório, execute o passo a passo descrito aqui: [CLONEME.md](docs/CLONEME.md).
+
+Para visualizar a demostração do método fetchall() do objeto cursor, execute o passo a passo descrito aqui: [FETCHALL.md](docs/FETCHALL.md).
 
 # Conectando nossa aplicação com o banco de dados
 
