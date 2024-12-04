@@ -1,6 +1,6 @@
 # Aplicação: cadastro de Vingadores
 
-Esta aplicação fará o cadastro de vingadores, com nome, nome real, poderes, fraquezas, força e será utilizado para praticar a criação de uma aplicação backend com Python, MySQL e Flask. 
+Esta aplicação fará o cadastro de vingadores, com nome, nome real, poderes, fraquezas, força e será utilizado para praticar a criação de uma aplicação backend com Python, MySQL e Flask.
 
 Para clonar o repositório, execute o passo a passo descrito aqui: [CLONEME.md](docs/CLONEME.md).
 
