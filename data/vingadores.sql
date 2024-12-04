@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `vingadores` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `vingadores`;
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: vingadores
 -- ------------------------------------------------------
--- Server version	8.0.21
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -34,7 +34,7 @@ CREATE TABLE `heroi` (
   `fraquezas` varchar(45) DEFAULT NULL,
   `nivel_forca` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`heroi_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `heroi` (
 
 LOCK TABLES `heroi` WRITE;
 /*!40000 ALTER TABLE `heroi` DISABLE KEYS */;
-INSERT INTO `heroi` VALUES (2,'Homem de Ferro','Tony Stark','Humano','Inteligência, Tecnologia','Armadura','Arrogância','100'),(3,'Thor','Thor','Deidade','Força, Relâmpagos, Mjolnir','Rompe-tormentas','Orgulho, Fortnite','1000');
+INSERT INTO `heroi` VALUES (2,'Homem de Ferro','Tony Stark','Humano','Inteligência, Tecnologia','Armadura','Arrogância','100'),(3,'Thor','Thor','Deidade','Força, Relâmpagos, Mjolnir','Rompe-tormentas','Orgulho, Fortnite','1000'),(4,'Hulk','Bruce Banner','Meta-humano','Força,  Salto','Força','Alter ego','1000');
 /*!40000 ALTER TABLE `heroi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-28 22:19:11
+-- Dump completed on 2024-12-04 13:50:02
