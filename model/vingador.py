@@ -85,7 +85,7 @@ class Vingador:
         return None
 
     def __str__(self):
-        return f'{self.nome_real.ljust(20)} |  {self.nome_heroi.ljust(20)} |  {self.categoria.ljust(15)} |  {self.tornozeleira.ljust(15)} |  {self.chip_gps.ljust(15)}'
+        return f'{self.nome_heroi.ljust(20)} |  {self.nome_real.ljust(20)} |  {self.categoria.ljust(15)} |  {self.tornozeleira.ljust(15)} |  {self.chip_gps.ljust(15)}'
 
     def aplicar_tornozeleira(self):
         if self._convocado:

@@ -91,6 +91,7 @@ class Interface:
             
         except Exception as e:
             print(f"Erro ao salvar vingador no banco de dados: {e}")
+            
         finally:
             db.disconnect()
 
