@@ -8,7 +8,7 @@ Para visualizar a demostração do método fetchall() do objeto cursor, execute 
 
 # Conectando nossa aplicação com o banco de dados
 
-**1º passo**: Criaremos um ambiente virtual para instalar as dependências do projeto, impedindo que as mesmas sejam instaladas globalmente e interfiram em outros projetos. Podemos criar esse ambiente virtual no VS Code da seguinte forma:
+**1º passo**: Criaremos um ambiente virtual para instalar as dependências do projeto, impedindo que as mesmas sejam instaladas globalmente e interfiram em outros projetos. Podemos criar esse ambiente virtual no VS Code da seguinte forma: 
 
 1. Com um arquivo Python aberto (.py), clique na informação de ambiente (número da versão do Python) no canto inferior direito do VS Code;
 2. Clique em "Criar ambiente virtual";
